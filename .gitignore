@@ -1,7 +1,3 @@
-# Data
-data/mnist_train.csv
-data/mnist_test.csv
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
