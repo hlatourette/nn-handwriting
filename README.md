@@ -1,37 +1,18 @@
 # nn-handwriting
-Neural network implmentation trained on MNIST data set written in Python 3.6. The network achieves around around 97-98% accuracy on test data.
+Neural network implmentation trained on MNIST data set written in Python 3.6. The network achieves around around 97-98% accuracy on the full MNIST dataset.
 
-## Installation / Setup
-#### Linux/OSX
+## Build
 ```
-python -m venv env
-cd env\scripts\activate
-activate
-``` 
-``` 
-pip install -r requirements.txt
+docker build -t nn-handwriting .
 ```
-#### Windows
-Create a new folder called 'wheels' in the root of the repository
 
-Download the following whl files from http://www.lfd.uci.edu/~gohlke/pythonlibs/ into the wheels folder
-- numpy-1.13.1+mkl-cp36-cp36m-win_amd64.whl
-- matplotlib-2.0.2-cp36-cp36m-win_amd64.whl
-- scipy-0.19.1-cp36-cp36m-win_amd64.whl
+## Run
+Containerized/Docker:
 ```
-python -m venv env
-cd env\scripts\activate
-activate
-``` 
+docker run -it --rm --name nn-handwriting nn-handwriting
 ```
-pip install -r requirements_win.txt
-```
-#### Data
-Because of file size limits the MNIST dataset is not included in the repository (other than the two small example sets). 
-Download the following csv files into the data folder (in the root of repo)
-- https://pjreddie.com/media/files/mnist_train.csv
-- https://pjreddie.com/media/files/mnist_test.csv
-## Usage
+
+Direct:
 ```
 python main.py [training.csv] [test.csv]
 ```
@@ -43,10 +24,12 @@ python main.py ./../data/mnist_train_100.csv ./../data/mnist_test_10.csv
 python main.py ./../data/mnist_train.csv ./../data/mnist_test.csv
 ```
 
+### Data
+Because of file size limits the MNIST dataset is not included in the repository (other than the two small example sets). To perform a complete training regimen download the following CSV files and replace the train/test files in ```data```.
+- https://pjreddie.com/media/files/mnist_train.csv
+- https://pjreddie.com/media/files/mnist_test.csv
+
 ## References
 Make Your Own Neural Network - Tariq Rashid
 
 MNIST in CSV - https://pjreddie.com/projects/mnist-in-csv/
-
-## License
-See LICENSE file
